@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+        StringBuffer sb = new StringBuffer();
         int count = Integer.parseInt(br.readLine());
         HashMap<Integer, ArrayList<String>> table = new HashMap<>();
 
@@ -26,11 +26,12 @@ public class Main {
 
         for (int key : table.keySet()) {
             ArrayList<String> list = table.get(key);
-            
             for (int i = 0; i < list.size(); i++) {
-                System.out.println(list.get(i));
+                sb.append(list.get(i)).append("\n");
             }
         }
+
+        System.out.println(sb);
 
         br.close();
     }
