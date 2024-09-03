@@ -16,8 +16,8 @@ public class Main {
             if (p % i == 0) {
                 seq++;
                 number = i;
+                if (seq == q) break;
             }
-            if (seq == q) break;
         }
         System.out.println(seq == q ? number : 0);
         br.close();
