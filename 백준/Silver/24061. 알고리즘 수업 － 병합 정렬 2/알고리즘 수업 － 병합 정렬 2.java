@@ -33,17 +33,17 @@ public class Main {
             arr[i] = Integer.parseInt(input[i]);
         }
 
-        merge_sort(0, arr.length - 1);
+        mergeSort(0, arr.length - 1);
         if (question > seq) {
             System.out.println(-1);
         }
     }
 
-    public static void merge_sort(int start, int end) {
+    public static void mergeSort(int start, int end) {
         if (start < end) {
             int mid = start + (end - start) / 2 + 1;
-            merge_sort(start, mid - 1);
-            merge_sort(mid, end);
+            mergeSort(start, mid - 1);
+            mergeSort(mid, end);
             merge(start, mid, end);
         }
 
