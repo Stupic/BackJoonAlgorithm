@@ -10,8 +10,8 @@ public class Main {
 
         String[] input = br.readLine().split(" ");
 
-        int a = Integer.parseInt(input[0]);
-        int b = Integer.parseInt(input[1]);
+        long a = Long.parseLong(input[0]);
+        long b = Long.parseLong(input[1]);
         System.out.println((a+b)*(a-b));
         br.close();
     }
