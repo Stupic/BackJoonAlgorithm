@@ -39,50 +39,49 @@ public class Main {
 
 class MyQueue {
     Item front = null;
+    Item last = null;
 
     public void push(int x) {
-        Item item = new Item(x);
-        Item target = front;
+        Item item = new Item();
+        item.value = x;
 
+        Item target = front;
         if (target == null) {
             front = item;
+            last = item;
         } else {
-            while (target.getNext() != null) {
-                target = target.getNext();
+            while (target.next != null) {
+                target = target.next;
             }
-            target.setNext(item);
+            target.next = item;
+            last = target.next;
         }
     }
 
     public void pop() {
         if (front == null) System.out.println(-1);
         else {
-            System.out.println(front.getValue());
-            front = front.getNext();
+            System.out.println(front.value);
+            front = front.next;
+            if (front == null) last = null;
         }
     }
 
     public void front() {
         if (front == null) System.out.println(-1);
-        else System.out.println(front.getValue());
+        else System.out.println(front.value);
     }
 
     public void back() {
-        if (front == null) System.out.println(-1);
-        else {
-            Item target = front;
-            while (target.getNext() != null) {
-                target = target.getNext();
-            }
-            System.out.println(target.getValue());
-        }
+        if (last == null) System.out.println(-1);
+        else System.out.println(last.value);
     }
 
     public void getSize() {
         int size = 0;
         Item item = front;
         while (item != null) {
-            item = item.getNext();
+            item = item.next;
             size++;
         }
         System.out.println(size);
@@ -96,22 +95,6 @@ class MyQueue {
 }
 
 class Item {
-    private int value;
-    private Item next = null;
-
-    public Item(int value) {
-        this.value = value;
-    }
-
-    public Item getNext() {
-        return this.next;
-    }
-
-    public void setNext(Item item) {
-        this.next = item;
-    }
-
-    public int getValue() {
-        return this.value;
-    }
+    public int value;
+    public Item next = null;
 }
