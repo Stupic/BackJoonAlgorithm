@@ -14,10 +14,10 @@ public class Main {
         BigInteger hash = BigInteger.valueOf(0);
         for (int i = 0; i < length; i++) {
             char c = input.charAt(i);
-            int value = (int) c - 96;
-            hash = hash.add(BigInteger.valueOf((long) (value * Math.pow(31,i))));
+            BigInteger val = BigInteger.valueOf((int) c - 96);
+            hash = hash.add(val.multiply(BigInteger.valueOf(31).pow(i)));
         }
-        System.out.println(hash);
+        System.out.println(hash.remainder(BigInteger.valueOf(1234567891)));
         br.close();
     }
 }
