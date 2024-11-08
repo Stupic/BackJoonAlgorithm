@@ -24,11 +24,11 @@ public class Main {
         }
 
         bfs(0);
-
+        StringBuffer sb = new StringBuffer();
         for (int i = 1; i < nodeCnt; i++) {
-            System.out.println(nodes[i].parent + 1);
+            sb.append(nodes[i].parent + 1).append("\n");
         }
-
+        System.out.println(sb);
         br.close();
     }
 
@@ -41,7 +41,6 @@ public class Main {
 
         while (!queue.isEmpty()) {
             Integer parent = queue.poll();
-            nodes[parent].children.sort((n1,n2)->n1-n2);
             for (Integer child : nodes[parent].children) {
                 if (nodes[child].parent != null) continue;
 
