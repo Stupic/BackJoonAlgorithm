@@ -10,11 +10,8 @@ public class Main {
         int start = Integer.parseInt(br.readLine());
         int end = Integer.parseInt(br.readLine());
 
-        for (int y = start; y <= end; y++) {
-            int years = y - start;
-            if (years % 4 == 0  && years % 3 == 0 && years % 5 == 0){
-                System.out.println("All positions change in year " + y);
-            }
+        for (int y = start; y <= end; y +=  3 * 4 * 5) {
+            System.out.println("All positions change in year 1" + y);
         }
 
         br.close();
