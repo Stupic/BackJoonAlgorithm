@@ -11,20 +11,15 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         String[] days = br.readLine().split(" ");
 
-        int minTrash = Integer.MAX_VALUE;
-        int minDay = Integer.MAX_VALUE;
+        int minDay = 0;
         for (int i = 0; i < n; i++) {
-            int trashDay = Integer.parseInt(days[i]);
-
-            if (trashDay == 0) {
+            int trash = Integer.parseInt(days[i]);
+            int minTrash = Integer.parseInt(days[minDay]);
+            if (trash == 0) {
                 minDay = i;
                 break;
             }
-
-            if (trashDay < minTrash) {
-                minTrash = trashDay;
-                minDay = i;
-            }
+            if (trash < minTrash) minDay = i;
         }
         System.out.println(minDay);
 
